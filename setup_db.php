@@ -78,9 +78,6 @@ try {
     $aiLogCols = ["prompt_text TEXT","response_text LONGTEXT","generated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP"];
     foreach($aiLogCols as $col) { run($pdo, "ALTER TABLE ai_logs ADD COLUMN IF NOT EXISTS $col", "", true); }
     
-    // --- API KEYS (Secure storage for sensitive API keys) ---
-    run($pdo, "CREATE TABLE IF NOT EXISTS api_keys (id INT AUTO_INCREMENT PRIMARY KEY, key_name VARCHAR(100) NOT NULL UNIQUE, key_value LONGTEXT NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP) ENGINE=InnoDB;", "Verified `api_keys` table");
-    
     echo "<br><h3>Step 3: Standardizing Column Types...</h3>";
 
     // 4. Standardize all ID types
