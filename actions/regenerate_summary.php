@@ -22,6 +22,9 @@ if (empty($reportData)) {
     exit();
 }
 
+$reportDate = $_POST['report_date'] ?? date('Y-m-d');
+$formattedDate = date('F j, Y', strtotime($reportDate));
+
 // --- Step 3: Prepare the API Request (URL is updated) ---
 $apiKey = GEMINI_API_KEY;
 
@@ -36,8 +39,8 @@ $url = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:gen
 // ===================================================================
 
 // Your detailed, custom prompt is preserved exactly as you wrote it.
-$prompt = "You are a professional assistant. Your task is to refine and rewrite the following EOD report draft into a clear and professional email body.
-Note Please add todays date where you find [Insert Date]
+$prompt = "You are a professional assistant. Your task is to refine and rewrite the following EOD report draft into a clear and professional email body. The report date is " . $formattedDate . ".
+Note Please add the date " . $formattedDate . " where you find [Insert Date]
 **Instructions:**
 1.  Correct any grammar or spelling mistakes.
 2.  Improve the overall tone and flow.
