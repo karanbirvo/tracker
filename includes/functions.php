@@ -3,7 +3,9 @@
 if (empty($pdo)) {
     require_once __DIR__ . '/db.php';
 }
-
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
 }

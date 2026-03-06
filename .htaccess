@@ -1,25 +1,67 @@
-# Turn on the URL rewriting engine
+# Enable Rewrite Engine
 RewriteEngine On
 
-# 1. Force clean URLs (Redirect .php to no extension)
-# Only applies if it is NOT a POST request
+#################################################
+# 1. Detect HTTPS behind Nginx Proxy Manager
+#################################################
+
+# If request comes via proxy as HTTPS, set HTTPS=on
+RewriteCond %{HTTP:X-Forwarded-Proto} =https
+RewriteRule .* - [E=HTTPS:on]
+
+#################################################
+# 2. Force HTTPS (optional but recommended)
+#################################################
+
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#################################################
+# 3. Force Clean URLs (remove .php extension)
+#################################################
+
+# Do not apply to POST requests
 RewriteCond %{REQUEST_METHOD} !POST
+
+# Redirect .php → clean URL
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# 2. Internally add .php back to the file path
-# Checks if the file exists with .php extension
+#################################################
+# 4. Internally map clean URL → .php file
+#################################################
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]
 
-# 3. Handle standard files/directories
+#################################################
+# 5. Route unknown requests to index.php
+#################################################
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [L]
 
+#################################################
+# 6. Security (optional but recommended)
+#################################################
+
+# Block access to hidden files
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Protect configuration files
+<FilesMatch "(^\.env|composer\.json|composer\.lock)">
+  Require all denied
+</FilesMatch>
+
+#################################################
+# 7. Allow keepalive.php access
+#################################################
 
 <Files "keepalive.php">
-  Satisfy Any
-  Allow from all
+  Require all granted
 </Files>

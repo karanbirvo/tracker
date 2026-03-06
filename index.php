@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('edit_entry_id').value = entryId; 
             document.getElementById('edit_current_type').value = entryType;
 
-            fetch(`api/get_entry_details.php?id=${entryId}&type=${entryType}`)
+            fetch(`https://tracker.devprojects.in/api/get_entry_details.php?id=${entryId}&type=${entryType}`)
                 .then(response => response.json())
                 .then(res => {
                     if (res.success) {
