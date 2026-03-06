@@ -41,6 +41,6 @@ if (!defined('ENCRYPTION_CIPHER')) {
     define('ENCRYPTION_CIPHER', 'aes-256-cbc');
 }
 if (!defined('GEMINI_API_KEY')) {
-    define('GEMINI_API_KEY', 'AIzaSyAD80SF022rIDler39no3KquFn1N_4fU-c');
+    define('GEMINI_API_KEY', 'hererehrerhe');
 }
 ?>

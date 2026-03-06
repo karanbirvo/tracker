@@ -36,18 +36,19 @@ $url = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:gen
 // ===================================================================
 
 // Your detailed, custom prompt is preserved exactly as you wrote it.
+// Get today's date to pass to Gemini
+$todaysDate = date('F d, Y');
 $prompt = "You are a professional assistant. Your task is to refine and rewrite the following EOD report draft into a clear and professional email body.
-Note Please add todays date where you find [Insert Date]
 **Instructions:**
 1.  Correct any grammar or spelling mistakes.
 2.  Improve the overall tone and flow.
 3.  The final output must be in clean HTML format, suitable for an email body.
-4. also add todays date in the date field and replace [insert date]
+4. Add today's date (" . $todaysDate . ") in the date field.
  here is the format of eod report which i want 
 
  ***format of eod report start ***
  EOD Report Format
-Date: [Insert Date] ->> add Todays data in the place of insert date
+Date: " . $todaysDate . " ->> This is todays date
 1. Project Updates
 Project Name: [Client or Project Title]
 Page/Task Name: [Page name or feature worked on]
