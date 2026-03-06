@@ -105,12 +105,26 @@ $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curl_error = curl_error($ch);
 curl_close($ch);
 
-// --- Step 5: Process the Response with Enhanced Error Reporting (No changes here) ---
+// --- Step 5: Process the Response with Enhanced Error Reporting ---
 if ($response === false || $http_code != 200) {
     $detailed_error = "cURL Error: " . ($curl_error ? $curl_error : 'No cURL error message.');
     $detailed_error .= " | HTTP Code: " . $http_code;
+    
+    // Check for specific error messages
+    $errorResponse = json_decode($response, true);
+    if (isset($errorResponse['error']['message'])) {
+        $errorMsg = $errorResponse['error']['message'];
+        
+        // Check for expired API key
+        if (stripos($errorMsg, 'expired') !== false || stripos($errorMsg, 'invalid') !== false) {
+            error_log("Gemini API Error: " . $detailed_error . " | Raw Response: " . $response);
+            echo json_encode(['success' => false, 'message' => '⚠️ Your Gemini API key has expired or is invalid. Please renew it at: /api_keys_settings.php']);
+            exit();
+        }
+    }
+    
     error_log("Gemini API Error: " . $detailed_error . " | Raw Response: " . $response);
-    echo json_encode(['success' => false, 'message' => 'Could not connect to the AI service. ' . $detailed_error]);
+    echo json_encode(['success' => false, 'message' => 'Could not connect to the AI service. Please check your API key and try again.']);
     exit();
 }
 
