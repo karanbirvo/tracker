@@ -1,10 +1,10 @@
 <?php
 
 
-$db_host = 'localhost';
-$db_name = ''; // Choose your DB name
-$db_user = '';            // Your DB username
-$db_pass = 'D*G$';  
+$db_host = 'tracker_db';
+$db_name = 'tracker'; // Choose your DB name
+$db_user = 'tracker';            // Your DB username
+$db_pass = 'trackerpass';  
 
 // --- THE FIX IS HERE ---
 // This array tells PDO to execute a command right after connecting.
@@ -41,6 +41,6 @@ if (!defined('ENCRYPTION_CIPHER')) {
     define('ENCRYPTION_CIPHER', 'aes-256-cbc');
 }
 if (!defined('GEMINI_API_KEY')) {
-    define('GEMINI_API_KEY', 'AIzaSyDaG3x0qSpzIjn8WSuwX2lQ8_71aYJ7vFE');
+    define('GEMINI_API_KEY', 'AIzaSyAD80SF022rIDler39no3KquFn1N_4fU-c');
 }
 ?>

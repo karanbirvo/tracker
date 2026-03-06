@@ -1,0 +1,29 @@
+services:
+
+  tracker_db:
+    image: mysql:8
+    container_name: tracker_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tracker
+      MYSQL_USER: tracker
+      MYSQL_PASSWORD: trackerpass
+    ports:
+      - "3307:3306"
+    volumes:
+      - tracker_db_data:/var/lib/mysql
+
+  tracker_app:
+    build: .
+    container_name: tracker_app
+    restart: always
+    ports:
+      - "3003:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - tracker_db
+
+volumes:
+  tracker_db_data:
