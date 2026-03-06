@@ -108,6 +108,7 @@ require_once 'includes/header.php';
         <div class="card border-0 shadow-sm rounded-4">
             <div class="card-body p-4">
                 <form id="email-compose-form" action="actions/send_email.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" id="report_date_hidden" value="<?= htmlspecialchars($dateFrom) ?>">
                     
                     <!-- To & Subject -->
                     <div class="row g-3 mb-3">
@@ -181,13 +182,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if(regenerateBtn) {
         regenerateBtn.addEventListener('click', () => {
             const currentContent = tinymce.get('email_body').getContent({ format: 'text' });
+            const reportDate = document.getElementById('report_date_hidden').value;
             statusDiv.innerHTML = '<span class="spinner-border spinner-border-sm text-primary"></span> Rewriting...';
             regenerateBtn.disabled = true;
             
             fetch('actions/regenerate_summary.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'report_data=' + encodeURIComponent(currentContent)
+                body: 'report_data=' + encodeURIComponent(currentContent) + '&report_date=' + encodeURIComponent(reportDate)
             })
             .then(res => res.json())
             .then(data => {
