@@ -9,9 +9,9 @@ if (!hasPermission('perm_ai')) {
 
 header('Content-Type: application/json');
 
-// --- Step 1: Check for the API Key (No changes here) ---
-if (!defined('GEMINI_API_KEY') || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY' || empty(GEMINI_API_KEY)) {
-    echo json_encode(['success' => false, 'message' => 'Error: Gemini API key is not configured in the includes/db.php file.']);
+// --- Step 1: Check for the API Key ---
+if (!defined('GEMINI_API_KEY') || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY' || GEMINI_API_KEY === '123456' || empty(GEMINI_API_KEY)) {
+    echo json_encode(['success' => false, 'message' => 'Error: Gemini API key is not configured. Please add your API key at: /api_keys_settings.php']);
     exit();
 }
 
