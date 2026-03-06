@@ -117,4 +117,61 @@ function hasPermission($permName) {
     
     return false;
 }
+
+// --- API KEY MANAGEMENT FUNCTIONS ---
+/**
+ * Store an API key securely in the database (encrypted)
+ * @param string $keyName The name/type of the API key (e.g., 'gemini', 'openai')
+ * @param string $keyValue The actual API key value to store
+ * @return bool Success or failure
+ */
+function setApiKey($keyName, $keyValue) {
+    global $pdo;
+    
+    // Encrypt the key value
+    $encryptedKey = encrypt_data($keyValue);
+    if ($encryptedKey === false) return false;
+    
+    try {
+        // Check if key already exists
+        $checkStmt = $pdo->prepare("SELECT id FROM api_keys WHERE key_name = ?");
+        $checkStmt->execute([$keyName]);
+        
+        if ($checkStmt->fetch()) {
+            // Update existing key
+            $stmt = $pdo->prepare("UPDATE api_keys SET key_value = ?, updated_at = NOW() WHERE key_name = ?");
+            return $stmt->execute([$encryptedKey, $keyName]);
+        } else {
+            // Insert new key
+            $stmt = $pdo->prepare("INSERT INTO api_keys (key_name, key_value, created_at, updated_at) VALUES (?, ?, NOW(), NOW())");
+            return $stmt->execute([$keyName, $encryptedKey]);
+        }
+    } catch (PDOException $e) {
+        error_log("Error storing API key: " . $e->getMessage());
+        return false;
+    }
+}
+
+/**
+ * Retrieve a decrypted API key from the database
+ * @param string $keyName The name/type of the API key (e.g., 'gemini', 'openai')
+ * @return string|false The decrypted key value or false if not found
+ */
+function getApiKey($keyName) {
+    global $pdo;
+    
+    try {
+        $stmt = $pdo->prepare("SELECT key_value FROM api_keys WHERE key_name = ?");
+        $stmt->execute([$keyName]);
+        $result = $stmt->fetch();
+        
+        if (!$result) return false;
+        
+        // Decrypt and return the key
+        return decrypt_data($result['key_value']);
+    } catch (PDOException $e) {
+        error_log("Error retrieving API key: " . $e->getMessage());
+        return false;
+    }
+}
 ?>

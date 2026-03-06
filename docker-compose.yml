@@ -1,18 +1,6 @@
-services:
+version: "3.9"
 
-  tracker_db:
-    image: mysql:8
-    container_name: tracker_db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tracker
-      MYSQL_USER: tracker
-      MYSQL_PASSWORD: trackerpass
-    ports:
-      - "3307:3306"
-    volumes:
-      - tracker_db_data:/var/lib/mysql
+services:
 
   tracker_app:
     build: .
@@ -24,6 +12,42 @@ services:
       - ./:/var/www/html
     depends_on:
       - tracker_db
+    networks:
+      - tracker_network
+      - npm_default
+
+  tracker_db:
+    image: mysql:8
+    container_name: tracker_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Dev@1234!@#$
+      MYSQL_DATABASE: tracker
+      MYSQL_USER: tracker
+      MYSQL_PASSWORD: trackerpass
+    volumes:
+      - tracker_db_data:/var/lib/mysql
+    networks:
+      - tracker_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: tracker_phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: tracker_db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    depends_on:
+      - tracker_db
+    networks:
+      - tracker_network
+      - npm_default
 
 volumes:
   tracker_db_data:
+
+networks:
+  tracker_network:
+  npm_default:
+    external: true
