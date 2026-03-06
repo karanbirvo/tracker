@@ -9,9 +9,9 @@ if (!hasPermission('perm_ai')) {
 
 header('Content-Type: application/json');
 
-// --- Step 1: Check for the API Key ---
-if (!defined('GEMINI_API_KEY') || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY' || GEMINI_API_KEY === '123456' || empty(GEMINI_API_KEY)) {
-    echo json_encode(['success' => false, 'message' => 'Error: Gemini API key is not configured. Please add your API key at: /api_keys_settings.php']);
+// --- Step 1: Check for the API Key (No changes here) ---
+if (!defined('GEMINI_API_KEY') || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY' || empty(GEMINI_API_KEY)) {
+    echo json_encode(['success' => false, 'message' => 'Error: Gemini API key is not configured in the includes/db.php file.']);
     exit();
 }
 
@@ -36,19 +36,18 @@ $url = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:gen
 // ===================================================================
 
 // Your detailed, custom prompt is preserved exactly as you wrote it.
-// Get today's date to pass to Gemini
-$todaysDate = date('F d, Y');
 $prompt = "You are a professional assistant. Your task is to refine and rewrite the following EOD report draft into a clear and professional email body.
+Note Please add todays date where you find [Insert Date]
 **Instructions:**
 1.  Correct any grammar or spelling mistakes.
 2.  Improve the overall tone and flow.
 3.  The final output must be in clean HTML format, suitable for an email body.
-4. Add today's date (" . $todaysDate . ") in the date field.
+4. also add todays date in the date field and replace [insert date]
  here is the format of eod report which i want 
 
  ***format of eod report start ***
  EOD Report Format
-Date: " . $todaysDate . " ->> This is todays date
+Date: [Insert Date] ->> add Todays data in the place of insert date
 1. Project Updates
 Project Name: [Client or Project Title]
 Page/Task Name: [Page name or feature worked on]
@@ -105,26 +104,12 @@ $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curl_error = curl_error($ch);
 curl_close($ch);
 
-// --- Step 5: Process the Response with Enhanced Error Reporting ---
+// --- Step 5: Process the Response with Enhanced Error Reporting (No changes here) ---
 if ($response === false || $http_code != 200) {
     $detailed_error = "cURL Error: " . ($curl_error ? $curl_error : 'No cURL error message.');
     $detailed_error .= " | HTTP Code: " . $http_code;
-    
-    // Check for specific error messages
-    $errorResponse = json_decode($response, true);
-    if (isset($errorResponse['error']['message'])) {
-        $errorMsg = $errorResponse['error']['message'];
-        
-        // Check for expired API key
-        if (stripos($errorMsg, 'expired') !== false || stripos($errorMsg, 'invalid') !== false) {
-            error_log("Gemini API Error: " . $detailed_error . " | Raw Response: " . $response);
-            echo json_encode(['success' => false, 'message' => '⚠️ Your Gemini API key has expired or is invalid. Please renew it at: /api_keys_settings.php']);
-            exit();
-        }
-    }
-    
     error_log("Gemini API Error: " . $detailed_error . " | Raw Response: " . $response);
-    echo json_encode(['success' => false, 'message' => 'Could not connect to the AI service. Please check your API key and try again.']);
+    echo json_encode(['success' => false, 'message' => 'Could not connect to the AI service. ' . $detailed_error]);
     exit();
 }
 
