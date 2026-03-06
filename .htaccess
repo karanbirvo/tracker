@@ -1,0 +1,25 @@
+# Turn on the URL rewriting engine
+RewriteEngine On
+
+# 1. Force clean URLs (Redirect .php to no extension)
+# Only applies if it is NOT a POST request
+RewriteCond %{REQUEST_METHOD} !POST
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 2. Internally add .php back to the file path
+# Checks if the file exists with .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]
+
+# 3. Handle standard files/directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]
+
+
+<Files "keepalive.php">
+  Satisfy Any
+  Allow from all
+</Files>

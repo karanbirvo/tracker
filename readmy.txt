@@ -1,0 +1,68 @@
+/ (Your root folder, e.g., public_html)
+|
+|-- .htaccess                  (For clean URLs)
+|-- index.php                  (Dashboard)
+|-- login.php
+|-- register.php
+|-- logout.php
+|-- forgot_password.php
+|-- reset_password.php
+|-- profile.php
+|-- projects.php
+|-- edit_project.php
+|-- reports.php
+|-- admin_reports.php
+|-- admin_users.php
+|-- admin_email_logs.php
+|-- my_email_history.php
+|-- ai_history.php
+|-- compose_email.php
+|-- edit_entry.php
+|-- email_settings.php
+|-- email_layout_settings.php
+|-- keepalive.php
+|
+|-- actions/
+|   |-- add_task.php
+|   |-- archive_project.php
+|   |-- delete_entry.php
+|   |-- download_report.php
+|   |-- fetch_ai_history.php
+|   |-- fetch_email_history.php
+|   |-- pause_task.php
+|   |-- regenerate_summary.php
+|   |-- restore_project.php
+|   |-- schedule_task.php
+|   |-- send_email.php
+|   |-- send_eod_report.php
+|   |-- stop_current_task.php
+|   |-- update_entry.php
+|   |-- update_user_permissions.php
+|
+|-- api/
+|   |-- get_entry_details.php
+|   |-- get_project_tasks.php
+|
+|-- css/
+|   |-- style.css
+|
+|-- includes/
+|   |-- db.php                 (IMPORTANT: You must edit this file after uploading!)
+|   |-- functions.php
+|   |-- header.php
+|   |-- footer.php
+|   |-- email_template.php
+|   |-- partials/
+|       |-- edit_entry_modal.php
+|
+|-- js/
+|   |-- script.js
+|
+|-- lib/
+|   |-- fpdf/                  (Upload the entire folder)
+|
+|-- PHPMailer-master/          (Upload the entire folder)
+|
+|-- images/                    (Upload if you have a logo.png)
+|
+|-- certs/                     (Upload if you have a cacert.pem file)

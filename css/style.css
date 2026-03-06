@@ -1,0 +1,1005 @@
+/*header css*/
+
+        /* --- Embedded Header Styles --- */
+        :root {
+            --header-bg: #ffffff;
+            --header-text-color: #333;
+            --header-logo-color: #2D5A95; /* Your primary brand color */
+            --header-active-link-color: #2D5A95;
+            --header-hover-link-color: #4A8AEC;
+            --header-border-color: #e9ecef;
+            --header-height: 70px;
+            --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            --font-family-header: 'Poppins', sans-serif;
+            --mobile-menu-bg: #f8f9fa; /* Slightly different for mobile dropdown */
+        }
+
+        .site-header { /* Renamed from 'nav' to 'header class="site-header"' */
+            background-color: var(--header-bg);
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--header-shadow);
+            border-bottom: 1px solid var(--header-border-color);
+        }
+
+        .header-container {
+            /* max-width: 1280px; */
+            width: 90%;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo { /* Class for the logo link */
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--header-logo-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .site-logo i { /* Icon for the logo */
+            margin-right: 8px;
+            font-size: 1.5rem;
+        }
+
+        .header-center-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
+            padding: 0 10px;
+        }
+
+        .current-time {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--header-text-color);
+            padding: 8px 15px;
+            background-color: #f0f3f5;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            white-space: nowrap;
+        }
+        .current-time i {
+            color: var(--header-logo-color);
+        }
+
+        .site-navigation { /* Wrapper for the nav ul and mobile toggle */
+            display: flex;
+            align-items: center;
+        }
+
+        .site-navigation ul.nav-links { /* Applied to the ul */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .site-navigation li {
+            margin-left: 10px;
+        }
+
+        .site-navigation li a {
+            color: var(--header-text-color);
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px; /* Space for icons in links */
+            white-space: nowrap;
+        }
+
+        .site-navigation li a:hover {
+            background-color: #e9ecef;
+            color: var(--header-hover-link-color);
+        }
+
+        .site-navigation li a.active {
+            background-color: var(--header-logo-color);
+            color: #fff;
+            font-weight: 600;
+        }
+        .site-navigation li a.active i { /* Ensure icon color changes for active state */
+            color: #fff;
+        }
+
+        /* Your original logout styling might need slight adjustment if it was very specific */
+        .site-navigation li a[href="logout.php"]:hover { /* Target logout specifically */
+            background-color: #ffebee;
+            color: #c62828;
+        }
+         .site-navigation li a[href="logout.php"].active { /* Logout is not usually active */
+            background-color: transparent;
+            color: var(--header-text-color);
+        }
+
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--header-logo-color);
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 5px;
+            margin-left: 15px;
+            z-index: 1001;
+            line-height: 1;
+        }
+        .menu-toggle .fa-times { display: none; }
+        .menu-toggle.active .fa-bars { display: none; }
+        .menu-toggle.active .fa-times { display: block; }
+
+        /* Responsive Styles for Header */
+        @media (max-width: 1024px) {
+             .site-navigation li {
+                margin-left: 5px;
+            }
+            .site-navigation li a {
+                padding: 10px 10px;
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 992px) {
+             .header-center-content {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+            .site-logo {
+                font-size: 1.3rem;
+            }
+            .site-logo i {
+                font-size: 1.2rem;
+            }
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .site-navigation ul.nav-links {
+                display: none; /* Hidden by default on mobile */
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--mobile-menu-bg);
+                flex-direction: column;
+                align-items: stretch;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                border-top: 1px solid var(--header-border-color);
+            }
+            .site-navigation ul.nav-links.active { /* Shown when toggle is active */
+                display: flex;
+            }
+            .site-navigation li {
+                margin-left: 0;
+                width: 100%;
+            }
+            .site-navigation li a {
+                padding: 15px 20px;
+                border-bottom: 1px solid #dde1e6;
+                border-radius: 0;
+                justify-content: flex-start; /* Align text to left in mobile dropdown */
+                color: #444;
+            }
+            .site-navigation li:last-child a {
+                border-bottom: none;
+            }
+            .site-navigation li a:hover {
+                background-color: #e9ecef;
+                color: var(--header-logo-color);
+            }
+            .site-navigation li a.active {
+                background-color: var(--header-logo-color);
+                color: #fff;
+            }
+            .site-navigation li a.active i {
+                color: #fff;
+            }
+        }
+
+        /* Alert styles for session messages */
+        .alert { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 0.375rem; }
+        .alert-success { color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; }
+        .alert-danger { color: #842029; background-color: #f8d7da; border-color: #f5c2c7; }
+        .alert-info { color: #055160; background-color: #cff4fc; border-color: #b6effb; }
+        .alert-warning { color: #664d03; background-color: #fff3cd; border-color: #ffecb5; }
+ 
+
+
+
+/*header css*/
+
+
+
+
+/*footer css*/
+/* css/style.css */
+
+/* --- Footer Styles --- */
+.site-footer-container {
+    background-color: #2c3e50; /* Dark blue-gray background */
+    color: #bdc3c7; /* Light gray text */
+    padding: 40px 0 0; /* Padding top, bottom handled by .footer-bottom */
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-top: 40px; /* Space above the footer */
+}
+
+.footer-content-wrapper {
+    max-width: 1200px; /* Consistent with a wider layout */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+    justify-content: space-between;
+    gap: 30px; /* Space between footer sections */
+}
+
+.footer-section {
+    flex: 1; /* Allow sections to grow */
+    min-width: 250px; /* Minimum width before wrapping */
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    color: #ecf0f1; /* Lighter color for headings */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+.footer-section h4::after { /* Underline effect for headings */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #3498db; /* Accent color from a common palette */
+}
+
+.footer-section.about-us p.time-value-quote {
+    font-style: italic;
+    color: #95a5a6; /* Slightly muted for the quote */
+}
+
+.footer-section.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section.quick-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section.quick-links ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-flex; /* For icon alignment */
+    align-items: center;
+}
+.footer-section.quick-links ul li a i {
+    margin-right: 8px;
+    width: 16px; /* Consistent icon width */
+    text-align: center;
+    color: #7f8c8d; /* Muted icon color */
+    transition: color 0.2s ease;
+}
+
+.footer-section.quick-links ul li a:hover {
+    color: #ffffff; /* Brighter on hover */
+    padding-left: 5px; /* Slight indent on hover */
+}
+.footer-section.quick-links ul li a:hover i {
+    color: #3498db; /* Accent color for icon on hover */
+}
+
+
+.footer-section.contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-section.contact-info p i {
+    margin-right: 10px;
+    color: #7f8c8d;
+    width: 18px; /* Consistent icon width */
+    text-align: center;
+}
+
+.footer-section.contact-info a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-section.contact-info a:hover {
+    color: #ffffff;
+}
+
+/* Social Links (if you uncomment them in HTML) */
+.social-links {
+    margin-top: 15px;
+}
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #bdc3c7;
+    font-size: 1.3rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.social-links a:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+.footer-bottom {
+    background-color: #233140; /* Slightly darker for the bottom bar */
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 20px; /* Space above the bottom bar */
+    font-size: 0.85rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #95a5a6;
+}
+
+/* Responsive Adjustments for Footer */
+@media (max-width: 768px) {
+    .footer-content-wrapper {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center content when stacked */
+        text-align: center; /* Center text within sections */
+    }
+    .footer-section {
+        min-width: 100%; /* Full width for stacked sections */
+        align-items: center;
+    }
+    .footer-section h4::after { /* Center the underline */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .footer-section.quick-links ul,
+    .footer-section.contact-info p {
+        justify-content: center; /* Center list items / contact items */
+    }
+    .social-links { /* Center social links */
+        text-align: center;
+    }
+}
+
+/* Ensure body has enough margin-bottom if footer height is dynamic or significant */
+body {
+    /* ... other body styles ... */
+    position: relative; /* For potential sticky footer if content is short */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    display: flex; /* For sticky footer pattern */
+    flex-direction: column; /* For sticky footer pattern */
+}
+.main-content-area { /* The div that wraps your page content */
+    flex-grow: 1; /* Allows this area to expand and push footer down */
+}
+/*footer css*/
+/* Basic Reset & Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    /*max-width: 1000px;*/
+    /*margin: 20px auto;*/
+    margin: 94px auto 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 0.8em;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation */
+/*nav {*/
+    /*background-color: #2c3e50;*/
+/*    color: #ecf0f1;*/
+/*    padding: 10px 0;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+nav {
+    /* background-color: #2c3e50; */
+    color: #ecf0f1;
+    padding: 10px 0;
+    /* margin-bottom: 20px; */
+}
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0 20px; /* Adjust padding for nav container */
+    margin: 0 auto;
+    max-width: 1000px;
+}
+nav a {
+    color: #ecf0f1;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+nav a:hover, nav a.active {
+    background-color: #34495e;
+}
+nav .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+nav ul li {
+    margin-left: 10px;
+}
+
+
+/* Forms */
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
+    width: calc(100% - 22px); /* Account for padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button, .button-link {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none; /* For .button-link */
+    display: inline-block; /* For .button-link */
+}
+button:hover, .button-link:hover {
+    background-color: #2980b9;
+}
+button.danger, .button-link.danger {
+    background-color: #e74c3c;
+}
+button.danger:hover, .button-link.danger:hover {
+    background-color: #c0392b;
+}
+button.secondary, .button-link.secondary {
+    background-color: #95a5a6;
+}
+button.secondary:hover, .button-link.secondary:hover {
+    background-color: #7f8c8d;
+}
+
+/* Alerts & Messages */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+
+/* Task Input Area */
+.task-input-area {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 6px;
+}
+.task-input-area input[type="text"] {
+    width: 70%;
+    margin-right: 10px;
+}
+/* .task-input-area button {
+    width: 25%;
+} */
+
+/* Task Buttons Area */
+.task-buttons-area {
+    margin-bottom: 30px;
+}
+.task-buttons-area h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #34495e;
+}
+.task-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+.task-buttons-grid button, .task-buttons-grid .button-link {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+}
+.task-buttons-grid button.static-task {
+    background-color: #1abc9c; /* Teal */
+}
+.task-buttons-grid button.static-task:hover {
+    background-color: #16a085;
+}
+.task-buttons-grid button.dynamic-task {
+    background-color: #f39c12; /* Orange */
+}
+.task-buttons-grid button.dynamic-task:hover {
+    background-color: #e67e22;
+}
+
+/* Current Day Log */
+.current-log-area h3 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+.task-entry {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.task-entry.active-task {
+    background-color: #d1ecf1;
+    border-left: 5px solid #3498db;
+}
+.task-entry .task-name {
+    font-weight: bold;
+}
+.task-entry .task-time {
+    font-size: 0.9em;
+    color: #555;
+}
+.task-entry .task-duration {
+    font-size: 0.9em;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Reports Page */
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.reports-table th, .reports-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+.reports-table th {
+    background-color: #34495e;
+    color: white;
+}
+.reports-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+
+/* css/style.css */
+
+/* --- DASHBOARD (index.php) STYLES --- */
+
+/* Variables (ensure these are in your :root or adjust as needed) */
+/*:root {*/
+    /* ... your existing variables ... */
+/*    --dashboard-card-bg: #ffffff;*/
+/*    --dashboard-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);*/
+/*    --dashboard-border-color: #e0e0e0;*/
+/*    --dashboard-primary-text: #333;*/
+/*    --dashboard-secondary-text: #666;*/
+    /*--dashboard-accent-color: var(--header-logo-color, #2D5A95);*/
+    /*--dashboard-active-color: var(--header-hover-link-color, #4A8AEC); */
+    /*--dashboard-success-text: #28a745;*/
+/*    --dashboard-info-bg: #eef7ff;*/
+/*    --dashboard-info-text: #0056b3;*/
+/*}*/
+
+/* General Dashboard Heading */
+h1 { /* Style for the "Time Tracker Dashboard" heading */
+/*    font-size: 2.2rem;*/
+/*    color: var(--dashboard-primary-text);*/
+/*    margin-bottom: 30px;*/
+/*    font-weight: 600;*/
+    /*text-align: left;*/
+/*    border-bottom: 2px solid var(--dashboard-accent-color);*/
+/*    padding-bottom: 10px;*/
+/*}*/
+h1 i { /* If you add an icon to H1 */
+/*    margin-right: 10px;*/
+/*    color: var(--dashboard-accent-color);*/
+/*}*/
+
+
+/* Task Input Area */
+/*.task-input-area {*/
+/*    background-color: var(--dashboard-card-bg);*/
+/*    padding: 25px 30px;*/
+    /*border-radius: 12px; */
+/*    box-shadow: var(--dashboard-card-shadow);*/
+/*    margin-bottom: 30px;*/
+/*}*/
+
+/*.task-input-area h3 {*/
+/*    font-size: 1.3rem;*/
+/*    color: var(--dashboard-primary-text);*/
+/*    margin-top: 0;*/
+/*    margin-bottom: 20px;*/
+/*    font-weight: 500;*/
+    /*display: flex; */
+/*    align-items: center;*/
+    /*justify-content: space-between; */
+/*}*/
+/*.task-input-area h3 strong {*/
+/*    color: var(--dashboard-accent-color);*/
+/*    font-weight: 600;*/
+/*}*/
+/*.task-input-area h3 form {*/
+    /*margin-left: 15px;*/
+/*}*/
+.task-input-area .button-link.secondary { /* Style for "End Current Task" */
+/*    background-color: #f8f9fa;*/
+/*    color: var(--dashboard-secondary-text);*/
+/*    border: 1px solid #dee2e6;*/
+/*    padding: 8px 12px;*/
+/*    font-size: 0.85rem;*/
+/*    border-radius: 6px;*/
+/*    transition: background-color 0.2s ease, color 0.2s ease;*/
+/*}*/
+/*.task-input-area .button-link.secondary:hover {*/
+/*    background-color: #e9ecef;*/
+/*    color: var(--dashboard-primary-text);*/
+/*}*/
+
+
+/*.task-input-area form[action="actions/add_task.php"] { */
+/*    display: flex;*/
+/*    gap: 15px;*/
+/*}*/
+
+/*.task-input-area input[type="text"] {*/
+    /*flex-grow: 1; */
+/*    padding: 12px 18px;*/
+/*    font-size: 1rem;*/
+/*    border: 1px solid var(--dashboard-border-color);*/
+/*    border-radius: 8px;*/
+/*    transition: border-color 0.2s ease, box-shadow 0.2s ease;*/
+/*}*/
+/*.task-input-area input[type="text"]:focus {*/
+/*    border-color: var(--dashboard-accent-color);*/
+    /*box-shadow: 0 0 0 3px rgba(45, 90, 149, 0.15); */
+/*    outline: none;*/
+/*}*/
+
+/*.task-input-area form[action="actions/add_task.php"] button[type="submit"] {*/
+/*    background-color: var(--dashboard-accent-color);*/
+/*    color: white;*/
+/*    padding: 12px 25px;*/
+/*    border: none;*/
+/*    border-radius: 8px;*/
+/*    font-size: 1rem;*/
+/*    font-weight: 500;*/
+/*    cursor: pointer;*/
+/*    transition: background-color 0.2s ease, transform 0.1s ease;*/
+/*}*/
+/*.task-input-area form[action="actions/add_task.php"] button[type="submit"]:hover {*/
+    /*background-color: var(--dashboard-active-color); */
+/*    transform: translateY(-1px);*/
+/*}*/
+
+
+/* Task Buttons Area (Quick Actions) */
+/*.task-buttons-area {*/
+/*    background-color: var(--dashboard-card-bg);*/
+/*    padding: 25px 30px;*/
+/*    border-radius: 12px;*/
+/*    box-shadow: var(--dashboard-card-shadow);*/
+/*    margin-bottom: 30px;*/
+/*}*/
+
+/*.task-buttons-area h3 {*/
+/*    font-size: 1.3rem;*/
+/*    color: var(--dashboard-primary-text);*/
+/*    margin-top: 0;*/
+/*    margin-bottom: 20px;*/
+/*    font-weight: 500;*/
+/*    border-bottom: 1px solid var(--dashboard-border-color);*/
+/*    padding-bottom: 10px;*/
+/*}*/
+
+/*.task-buttons-grid {*/
+/*    display: grid;*/
+    /*grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); */
+/*    gap: 15px;*/
+/*}*/
+
+.task-buttons-grid button { /* General style for buttons in this grid */
+/*    width: 100%;*/
+/*    padding: 12px 15px;*/
+/*    font-size: 0.95rem;*/
+/*    font-weight: 500;*/
+/*    border-radius: 8px;*/
+    /*border: 1px solid transparent; */
+/*    cursor: pointer;*/
+/*    transition: all 0.2s ease-in-out;*/
+    /*text-align: center; */
+    /*display: flex; */
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    gap: 8px;*/
+/*}*/
+/* Optional: Add icons to these buttons like in previous designs for more appeal */
+/* .task-buttons-grid button i { font-size: 1.1em; } */
+
+/*.task-buttons-grid button.static-task {*/
+    /*background-color: #f0f8ff; */
+/*    color: var(--dashboard-accent-color);*/
+/*    border: 1px solid #d6eaff;*/
+/*}*/
+/*.task-buttons-grid button.static-task:hover {*/
+/*    background-color: #e0f0ff;*/
+/*    border-color: var(--dashboard-active-color);*/
+/*    transform: translateY(-2px);*/
+/*    box-shadow: 0 2px 8px rgba(0,0,0,0.08);*/
+/*}*/
+/*.task-buttons-grid button.static-task.active {*/
+/*    background-color: var(--dashboard-accent-color);*/
+/*    color: white;*/
+/*    font-weight: 600;*/
+/*    border-color: var(--dashboard-accent-color);*/
+/*    box-shadow: 0 2px 5px rgba(45, 90, 149, 0.3);*/
+/*}*/
+
+/*.task-buttons-grid button.dynamic-task {*/
+    /*background-color: #fff9e6;*/
+    /*color: #ffa000;*/
+/*    border: 1px solid #ffecb3;*/
+/*}*/
+/*.task-buttons-grid button.dynamic-task:hover {*/
+/*    background-color: #fff0c2;*/
+/*    border-color: #ff8f00;*/
+/*    transform: translateY(-2px);*/
+/*    box-shadow: 0 2px 8px rgba(0,0,0,0.08);*/
+/*}*/
+
+
+/* Current Log Area */
+/*.current-log-area {*/
+/*    background-color: var(--dashboard-card-bg);*/
+/*    padding: 25px 30px;*/
+/*    border-radius: 12px;*/
+/*    box-shadow: var(--dashboard-card-shadow);*/
+/*    margin-bottom: 30px;*/
+/*}*/
+
+/*.current-log-area h3 {*/
+/*    font-size: 1.3rem;*/
+/*    color: var(--dashboard-primary-text);*/
+/*    margin-top: 0;*/
+/*    margin-bottom: 20px;*/
+/*    font-weight: 500;*/
+/*    border-bottom: 1px solid var(--dashboard-border-color);*/
+/*    padding-bottom: 10px;*/
+/*}*/
+.current-log-area .alert-info { /* Specific styling for "no entries" message */
+/*    background-color: var(--dashboard-info-bg);*/
+/*    color: var(--dashboard-info-text);*/
+/*    border-color: var(--dashboard-border-color);*/
+/*    text-align: center;*/
+/*    padding: 20px;*/
+/*}*/
+
+/*.task-entry {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 15px 20px;*/
+/*    margin-bottom: 10px;*/
+/*    border-radius: 8px;*/
+/*    border: 1px solid var(--dashboard-border-color);*/
+    /*background-color: #fdfdfd;*/
+/*    transition: box-shadow 0.2s ease, transform 0.2s ease;*/
+/*}*/
+/*.task-entry:hover {*/
+/*    box-shadow: 0 3px 10px rgba(0,0,0,0.07);*/
+/*    transform: translateY(-2px);*/
+/*}*/
+
+/*.task-entry .task-name {*/
+/*    font-weight: 500;*/
+/*    color: var(--dashboard-primary-text);*/
+    /*flex-basis: 40%; */
+/*    font-size: 1.05em;*/
+/*}*/
+
+/*.task-entry .task-time {*/
+/*    font-size: 0.9rem;*/
+/*    color: var(--dashboard-secondary-text);*/
+    /*flex-basis: 60%;*/
+/*    text-align: right;*/
+    /*display: flex; */
+/*    justify-content: flex-end;*/
+/*    align-items: center;*/
+    /*gap: 10px; */
+/*}*/
+.task-entry .task-time .task-duration { /* Your duration is now inside task-time */
+    /*font-size: 1em;*/
+/*    font-weight: 500;*/
+/*    color: var(--dashboard-success-text);*/
+/*    background-color: var(--dashboard-success-bg);*/
+/*    padding: 4px 8px;*/
+/*    border-radius: 5px;*/
+    /*order: -1; */
+/*}*/
+
+/*.task-entry.active-task {*/
+    /*background-color: var(--dashboard-info-bg);*/
+/*    border-left: 5px solid var(--dashboard-accent-color);*/
+/*    box-shadow: 0 3px 10px rgba(45, 90, 149, 0.15);*/
+    /*transform: translateY(0);*/
+/*}*/
+/*.task-entry.active-task .task-name {*/
+/*    color: var(--dashboard-accent-color);*/
+/*    font-weight: 600;*/
+/*}*/
+/*.task-entry.active-task .task-time .task-duration {*/
+/*    background-color: var(--dashboard-accent-color);*/
+/*    color: white;*/
+/*}*/
+
+
+/* End Day Button Area */
+/*div[style*="text-align: right;"] { */
+    /*padding: 15px 0; */
+/*}*/
+
+button.danger { /* Style for the End Day button */
+    /*background-color: #dc3545; */
+/*    color: white;*/
+/*    padding: 12px 25px;*/
+/*    border: none;*/
+/*    border-radius: 8px;*/
+/*    font-size: 1rem;*/
+/*    font-weight: 500;*/
+/*    cursor: pointer;*/
+/*    transition: background-color 0.2s ease, transform 0.1s ease;*/
+/*}*/
+/*button.danger:hover {*/
+    /*background-color: #c82333;*/
+/*    transform: translateY(-1px);*/
+/*}*/
+
+
+/* Responsive Tweaks for Dashboard */
+/*@media (max-width: 768px) {*/
+/*    h1 {*/
+/*        font-size: 1.8rem;*/
+/*    }*/
+/*    .task-input-area h3 {*/
+/*        flex-direction: column;*/
+/*        align-items: flex-start;*/
+/*        gap: 10px;*/
+/*    }*/
+/*    .task-input-area h3 form {*/
+/*        margin-left: 0;*/
+        /*width: 100%; */
+/*    }*/
+/*     .task-input-area h3 .button-link.secondary {*/
+/*        width: 100%;*/
+/*        text-align: center;*/
+/*    }*/
+
+/*    .task-input-area form[action="actions/add_task.php"] {*/
+        /*flex-direction: column; */
+/*    }*/
+/*    .task-input-area form[action="actions/add_task.php"] button[type="submit"] {*/
+        /*width: 100%; */
+/*    }*/
+
+/*    .task-buttons-grid {*/
+        /*grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); */
+/*    }*/
+
+/*    .task-entry {*/
+/*        flex-direction: column;*/
+        /*align-items: flex-start; */
+/*        gap: 8px;*/
+/*    }*/
+/*    .task-entry .task-time {*/
+/*        text-align: left;*/
+/*        width: 100%;*/
+        /*justify-content: flex-start; */
+/*    }*/
+/*}*/
+/*@media (max-width: 480px) {*/
+/*    .task-buttons-grid {*/
+        /*grid-template-columns: 1fr 1fr; */
+/*    }*/
+/*}*/

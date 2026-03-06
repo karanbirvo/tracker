@@ -1,0 +1,291 @@
+[27-May-2025 12:30:19 Asia/Kolkata] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/fonofbzq/tracker/includes/db.php on line 17) in /home/fonofbzq/tracker/login.php on line 12
+[27-May-2025 12:30:19 Asia/Kolkata] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/login.php on line 13
+[27-May-2025 12:30:19 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/login.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/login.php on line 13
+[27-May-2025 12:30:22 Asia/Kolkata] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /home/fonofbzq/tracker/includes/db.php on line 17) in /home/fonofbzq/tracker/login.php on line 12
+[27-May-2025 12:30:22 Asia/Kolkata] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/login.php on line 13
+[27-May-2025 12:30:22 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/login.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/login.php on line 13
+[27-May-2025 09:01:29 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[27-May-2025 09:01:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:18:59 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:18:59 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:01 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:03 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:12 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:19 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:23 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:23 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:34 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:36 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:36 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:41 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:49 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:19:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:20:09 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:20:09 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:23:47 UTC] PHP Warning:  require_once(db.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/logout.php on line 3
+[30-May-2025 05:23:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'db.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/logout.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/logout.php on line 3
+[03-Jun-2025 17:37:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function requireLogin() in /home/fonofbzq/tracker/reports.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/reports.php on line 3
+[03-Jun-2025 17:37:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function requireLogin() in /home/fonofbzq/tracker/reports.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/reports.php on line 3
+[03-Jun-2025 17:37:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function requireLogin() in /home/fonofbzq/tracker/reports.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/reports.php on line 3
+[03-Jun-2025 17:37:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function isLoggedIn() in /home/fonofbzq/tracker/login.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/login.php on line 4
+[03-Jun-2025 23:08:41 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/login.php on line 5
+[03-Jun-2025 23:09:12 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/login.php on line 5
+[03-Jun-2025 23:12:05 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/includes/functions.php on line 30
+[03-Jun-2025 23:12:11 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/includes/functions.php on line 30
+[03-Jun-2025 23:13:16 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/includes/functions.php on line 30
+[03-Jun-2025 23:13:32 Asia/Kolkata] PHP Warning:  session_regenerate_id(): Session ID cannot be regenerated after headers have already been sent in /home/fonofbzq/tracker/login.php on line 39
+[03-Jun-2025 23:13:32 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/login.php on line 41
+[04-Jun-2025 00:00:49 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/includes/functions.php on line 30
+[04-Jun-2025 00:01:16 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/includes/functions.php on line 30
+[04-Jun-2025 00:09:47 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/includes/functions.php on line 30
+[04-Jun-2025 00:11:49 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/includes/functions.php on line 30
+[04-Jun-2025 01:19:01 Asia/Kolkata] PHP Warning:  Undefined array key "id" in /home/fonofbzq/tracker/edit_entry.php on line 20
+[04-Jun-2025 01:23:15 Asia/Kolkata] PHP Warning:  Undefined array key "user_role" in /home/fonofbzq/tracker/login.php on line 38
+[03-Jun-2025 19:58:28 UTC] PHP Parse error:  syntax error, unexpected identifier "you", expecting "(" in /home/fonofbzq/tracker/login.php on line 30
+[03-Jun-2025 19:58:34 UTC] PHP Parse error:  syntax error, unexpected identifier "you", expecting "(" in /home/fonofbzq/tracker/login.php on line 30
+[03-Jun-2025 20:19:36 UTC] PHP Warning:  Undefined variable $pdo in /home/fonofbzq/tracker/admin_users.php on line 5
+[03-Jun-2025 20:19:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/fonofbzq/tracker/admin_users.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 5
+[03-Jun-2025 20:19:39 UTC] PHP Warning:  Undefined variable $pdo in /home/fonofbzq/tracker/admin_users.php on line 5
+[03-Jun-2025 20:19:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/fonofbzq/tracker/admin_users.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 5
+[03-Jun-2025 20:19:41 UTC] PHP Warning:  Undefined variable $pdo in /home/fonofbzq/tracker/admin_users.php on line 5
+[03-Jun-2025 20:19:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/fonofbzq/tracker/admin_users.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 5
+[03-Jun-2025 20:20:24 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/fonofbzq/tracker/admin_users.php on line 3
+[03-Jun-2025 20:20:26 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/fonofbzq/tracker/admin_users.php on line 3
+[04-Jun-2025 01:54:48 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 01:55:03 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 01:57:23 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 01:57:32 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 04:29:05 Asia/Kolkata] PHP Warning:  Undefined variable $selectedUserId in /home/fonofbzq/tracker/admin_reports.php on line 21
+[04-Jun-2025 23:40:18 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'ORDER BY' in /home/fonofbzq/tracker/admin_users.php:65
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(65): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 65
+[04-Jun-2025 23:42:46 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'ORDER BY' in /home/fonofbzq/tracker/admin_users.php:65
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(65): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 65
+[04-Jun-2025 23:44:10 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 23:44:15 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 23:44:41 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 23:44:46 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 23:44:53 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 23:45:05 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 23:45:18 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:34
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(34): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 34
+[04-Jun-2025 23:46:36 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'WHERE' in /home/fonofbzq/tracker/admin_users.php:21
+Stack trace:
+#0 /home/fonofbzq/tracker/admin_users.php(21): PDO->query()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/admin_users.php on line 21
+[04-Jun-2025 18:27:54 UTC] PHP Parse error:  syntax error, unexpected token ">" in /home/fonofbzq/tracker/admin_users.php on line 21
+[04-Jun-2025 18:27:56 UTC] PHP Parse error:  syntax error, unexpected token ">" in /home/fonofbzq/tracker/admin_users.php on line 21
+[04-Jun-2025 18:28:20 UTC] PHP Parse error:  syntax error, unexpected token ">" in /home/fonofbzq/tracker/admin_users.php on line 21
+[05-Jun-2025 00:48:54 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:48:54 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:7
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/login.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:48:56 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:48:56 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:7
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/login.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:49:03 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:49:03 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:7
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/login.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:49:04 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:49:04 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:7
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/login.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:52:36 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:52:36 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:7
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/index.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:59:44 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 00:59:44 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:7
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/index.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 01:00:34 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 01:00:34 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:7
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/index.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 01:00:36 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 01:00:36 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:7
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/index.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 7
+[05-Jun-2025 01:00:44 Asia/Kolkata] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/fonofbzq/tracker/includes/functions.php on line 53
+[05-Jun-2025 01:00:59 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 115
+[05-Jun-2025 01:00:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:115
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/index.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 115
+[05-Jun-2025 01:01:02 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 115
+[05-Jun-2025 01:01:02 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:115
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/index.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 115
+[05-Jun-2025 01:01:07 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 115
+[05-Jun-2025 01:01:07 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:115
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/login.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 115
+[05-Jun-2025 01:01:39 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/fonofbzq/tracker/includes/header.php:6) in /home/fonofbzq/tracker/includes/functions.php on line 34
+[05-Jun-2025 01:01:52 Asia/Kolkata] PHP Warning:  require_once(/home/fonofbzq/tracker/includes/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/fonofbzq/tracker/includes/functions.php on line 6
+[05-Jun-2025 01:01:52 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fonofbzq/tracker/includes/../vendor/autoload.php' (include_path='.:/opt/alt/php84/usr/share/pear:/opt/alt/php84/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fonofbzq/tracker/includes/functions.php:6
+Stack trace:
+#0 /home/fonofbzq/tracker/includes/header.php(4): require_once()
+#1 /home/fonofbzq/tracker/login.php(2): require_once('/home/fonofbzq/...')
+#2 {main}
+  thrown in /home/fonofbzq/tracker/includes/functions.php on line 6
+[05-Jun-2025 01:03:37 Asia/Kolkata] PHP Warning:  Undefined array key "username" in /home/fonofbzq/tracker/login.php on line 13
+[05-Jun-2025 01:29:34 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_email_verified' in 'SELECT' in /home/fonofbzq/tracker/verify_email.php:12
+Stack trace:
+#0 /home/fonofbzq/tracker/verify_email.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home/fonofbzq/tracker/verify_email.php on line 12
