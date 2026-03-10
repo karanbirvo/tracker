@@ -157,7 +157,11 @@ System Seat Number: if data available add -> [Seat Number], else -> 'Contact IT 
 System Password: if data available add -> [Password], else -> 'Contact IT support team' if unavailable
 
 Here is the raw report data to rewrite:
+4. Client Communication
+if data available add -> [Any updates/Message for client] else add -> no specific information available for client or already updated to client
 
+5. Message for BD Team
+[Follow-up requirements] else add -> no specific information available for BD Team or already updated to BD Team or gemini please generate a dandom messege from upper projects description regarding what i do todat in 100 words
 $reportData
 ";
 //GEMINI REQUEST
