@@ -1,22 +1,29 @@
 <?php
+
 require_once '../includes/functions.php';
 requireLogin();
 
 // Permission Check
 if (!hasPermission('perm_ai')) {
-    echo json_encode(['success' => false, 'message' => 'Access Denied: AI permission required.']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Access Denied: AI permission required.'
+    ]);
     exit();
 }
 
 header('Content-Type: application/json');
 
-// --- Get Current Date in IST ---
+// --- Timezone ---
 date_default_timezone_set('Asia/Kolkata');
 $currentDate = date('d F Y');
 
 // --- Check Gemini API Key ---
-if (!defined('GEMINI_API_KEY') || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY' || empty(GEMINI_API_KEY)) {
-    echo json_encode(['success' => false, 'message' => 'Error: Gemini API key is not configured in includes/db.php']);
+if (!defined('GEMINI_API_KEY') || empty(GEMINI_API_KEY) || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY') {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Gemini API key is not configured.'
+    ]);
     exit();
 }
 
@@ -24,37 +31,100 @@ if (!defined('GEMINI_API_KEY') || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY' || em
 $reportData = $_POST['report_data'] ?? '';
 
 if (empty($reportData)) {
-    echo json_encode(['success' => false, 'message' => 'Error: No text was sent to the AI.']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Error: No report text provided.'
+    ]);
     exit();
 }
 
-$apiKey = GEMINI_API_KEY;
+$userId = $_SESSION['user_id'];
 
-// Updated Gemini API Endpoint
+// --------------------------------------
+// CALCULATE TRACKER HOURS FROM DATABASE
+// --------------------------------------
+
+try {
+
+    $stmt = $pdo->prepare("
+        SELECT start_time,end_time
+        FROM time_entries
+        WHERE user_id = ?
+        AND DATE(start_time) = CURDATE()
+        AND end_time IS NOT NULL
+    ");
+
+    $stmt->execute([$userId]);
+
+    $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $totalSeconds = 0;
+
+    foreach ($entries as $entry) {
+
+        $start = strtotime($entry['start_time']);
+        $end   = strtotime($entry['end_time']);
+
+        if ($start && $end) {
+            $totalSeconds += ($end - $start);
+        }
+    }
+
+    $hours = floor($totalSeconds / 3600);
+    $minutes = floor(($totalSeconds % 3600) / 60);
+    $seconds = $totalSeconds % 60;
+
+    $totalTracker = sprintf("%02dh %02dm %02ds", $hours, $minutes, $seconds);
+
+} catch (PDOException $e) {
+
+    error_log("Tracker Calculation Error: " . $e->getMessage());
+    $totalTracker = "N/A";
+}
+
+// --- Gemini API Endpoint ---
+$apiKey = GEMINI_API_KEY;
 $url = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=" . $apiKey;
 
-// --- AI Prompt ---
+// Replace placeholders with calculated values
+
+$reportData = str_replace(
+    '[Please fill]',
+    'N/A',
+    $reportData
+);
+
+$reportData = str_replace(
+    'Total Tracker: N/A',
+    'Total Tracker: ' . $totalTracker,
+    $reportData
+);
+
+$reportData = str_replace(
+    'Running Tracker: N/A',
+    'Running Tracker: ' . $totalTracker,
+    $reportData
+);
+// --------------------------------------
+// AI PROMPT
+// --------------------------------------
 $prompt = "
-You are a professional assistant.
+You are a professional assistant tasked with rewriting an EOD report into a polished email body.
 
 Today's Date: $currentDate
-
-Your task is to refine and rewrite the following EOD report draft into a professional email body.
 
 IMPORTANT RULES:
 
 1. Always use this date: $currentDate
 2. Replace any '[Insert Date]' with $currentDate
-3. If any field is empty write N/A
-4. If Work Pending has no data write N/A
-5. If Tracker fields have no values write N/A
-6. Do NOT invent fake numbers
-7. Do NOT add exact times
-8. Output must be CLEAN HTML for email body
-9. Do NOT add markdown
-10. Do NOT add ```html or ``` anywhere
+3. If any field is empty, write N/A
+4. If 'Work Pending' has no data, write N/A
+5. Do NOT invent numbers or times
+6. Do NOT include exact times
+7. Output must be CLEAN HTML suitable for email body
+8. Do NOT include markdown or ```html
 
-EOD REPORT FORMAT
+EOD REPORT FORMAT:
 
 Date: $currentDate
 
@@ -70,72 +140,60 @@ Work Completed:
 [List tasks]
 
 Work Pending:
-If empty write N/A
+[List tasks or N/A]
 
 2. Tracker Status
 
-Total Tracker: If not provided write N/A
+Total Tracker: $totalTracker
 
-Running Tracker: If not provided write N/A
+Running Tracker: $totalTracker
 
-Pending Tracker: If not provided write N/A
+Pending Tracker: N/A
 
 3. System Details
 
-System Seat Number: [Seat Number]
+System Seat Number: [Seat Number] or 'Contact IT support team' if unavailable
 
-System Password: [Password]
+System Password: [Password] or 'Contact IT support team' if unavailable
 
-Tracker Tabs Open: Yes / No / N/A
+Here is the raw report data to rewrite:
 
-4. Client Communication
+$reportData
+";
+//GEMINI REQUEST
+// --------------------------------------
 
-If no message write [No specific updates or messages for the client were provided in the draft.]
-
-5. Message for BD Team
-
-If not applicable write [No specific follow-up requirements for the Night Shift were provided in the draft.]
-
-ADDITIONAL RULES
-
-• If multiple tasks exist, group them by project.
-• Make the report clean and professional.
-• At the end add a small note that tracker values are approximate.
-
-CRITICAL OUTPUT RULES
-
-• Do NOT wrap response in markdown
-• Do NOT include ```html
-• Start directly with HTML tags like <p>
-
-Here is the draft to improve:
-
----
-" . strip_tags($reportData);
-
-
-// --- API Request Data ---
 $data = [
-    'contents' => [
+    "contents" => [
         [
-            'parts' => [
-                ['text' => $prompt]
+            "parts" => [
+                [
+                    "text" => $prompt
+                ]
             ]
         ]
     ]
 ];
 
-// --- cURL Request ---
+
+// --------------------------------------
+// CURL REQUEST
+// --------------------------------------
+
 $ch = curl_init($url);
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json'
+]);
+
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 
-// SSL Certificate
+
+// --- SSL CERTIFICATE ---
 $ca_path = __DIR__ . '/../../certs/cacert.pem';
 
 if (file_exists($ca_path)) {
@@ -145,17 +203,22 @@ if (file_exists($ca_path)) {
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 }
 
+
+// --- EXECUTE REQUEST ---
 $response = curl_exec($ch);
 $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curl_error = curl_error($ch);
 
 curl_close($ch);
 
-// --- Error Handling ---
+
+// --------------------------------------
+// ERROR HANDLING
+// --------------------------------------
+
 if ($response === false || $http_code != 200) {
 
     $error = "cURL Error: " . ($curl_error ?: 'Unknown');
-
     $error .= " | HTTP Code: " . $http_code;
 
     error_log("Gemini API Error: " . $error . " | Raw Response: " . $response);
@@ -168,7 +231,11 @@ if ($response === false || $http_code != 200) {
     exit();
 }
 
-// --- Decode Response ---
+
+// --------------------------------------
+// PARSE RESPONSE
+// --------------------------------------
+
 $result = json_decode($response, true);
 
 $generatedText = $result['candidates'][0]['content']['parts'][0]['text'] ?? '';
@@ -185,15 +252,21 @@ if (empty($generatedText)) {
     exit();
 }
 
-// --- Force Replace Date (Extra Safety) ---
+
+// --- Replace Date Safety ---
 $generatedText = str_replace('[Insert Date]', $currentDate, $generatedText);
 
-// --- Database Logging ---
+
+// --------------------------------------
+// LOG AI RESPONSE
+// --------------------------------------
+
 try {
 
-    $logStmt = $pdo->prepare(
-        "INSERT INTO ai_logs (user_id, prompt_text, response_text) VALUES (?, ?, ?)"
-    );
+    $logStmt = $pdo->prepare("
+        INSERT INTO ai_logs (user_id, prompt_text, response_text)
+        VALUES (?, ?, ?)
+    ");
 
     $logStmt->execute([
         $_SESSION['user_id'],
@@ -206,9 +279,14 @@ try {
     error_log("AI Log Save Error: " . $e->getMessage());
 }
 
-// --- Return Result ---
+
+// --------------------------------------
+// RETURN RESULT
+// --------------------------------------
+
 echo json_encode([
     'success' => true,
     'summary' => trim($generatedText)
 ]);
+
 ?>
