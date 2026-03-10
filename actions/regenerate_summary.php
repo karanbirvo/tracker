@@ -152,9 +152,9 @@ Pending Tracker: N/A
 
 3. System Details
 
-System Seat Number: [Seat Number] or 'Contact IT support team' if unavailable
+System Seat Number: if data available add -> [Seat Number], else -> 'Contact IT support team' if unavailable
 
-System Password: [Password] or 'Contact IT support team' if unavailable
+System Password: if data available add -> [Password], else -> 'Contact IT support team' if unavailable
 
 Here is the raw report data to rewrite:
 
